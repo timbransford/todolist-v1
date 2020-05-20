@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 mongoose.set('useFindAndModify', false);
-mongoose.connect("mongodb+srv://" + process.env.mongoUserName + ":" + process.env.mongoPassword + process.env.mongoCluster, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
 
 const itemSchema = {
   name: {
@@ -135,7 +135,7 @@ app.post("/delete", function (req,res) {
   const checkedItemId = req.body.check;
   const listName = _.kebabCase(req.body.name);
 
-  if(listName === "Today") {
+  if(listName === "today") {
     Item.findByIdAndRemove(checkedItemId, function (err) {
       res.redirect("/");
     });
