@@ -106,5 +106,4 @@ dist
 # WebStorm settings
 .idea/
 
-# Secrets
-secrets.js
+

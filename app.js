@@ -1,9 +1,10 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
+require('dotenv').config();
 const mongoose = require("mongoose");
 const _ = require('lodash');
-const secrets = require('secrets.js');
+
 
 const app = express();
 
@@ -12,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 mongoose.set('useFindAndModify', false);
-mongoose.connect("mongodb+srv://" + secrets.mongoUserName + ":" + secrets.mongoPassword + secrets.mongoCluster, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://" + process.env.mongoUserName + ":" + process.env.mongoPassword + process.env.mongoCluster, { useNewUrlParser: true, useUnifiedTopology: true })
 
 const itemSchema = {
   name: {
