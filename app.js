@@ -5,7 +5,6 @@ require('dotenv').config();
 const mongoose = require("mongoose");
 const _ = require('lodash');
 
-
 const app = express();
 
 app.set("view engine", "ejs");
@@ -148,7 +147,7 @@ app.post("/delete", function (req,res) {
   }
 });
 
-app.listen(port, function () {
+app.listen(process.env.PORT, function () {
   console.log("TodoList V1 is running on http://localhost:" + port);
 });
 
