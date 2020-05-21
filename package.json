@@ -4,12 +4,14 @@
   "description": "Todo list web application with node.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/timbransford/todolist-v1.git"
+  },
+  "engines": {
+    "node": "12.6.3"
   },
   "author": "Tim Bransford",
   "license": "ISC",
